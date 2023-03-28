@@ -1,15 +1,11 @@
-import { AppState } from 'app/pages/App/slice/types';
-import { NewSliceState } from 'app/pages/NewSlice/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
-  Because the redux-injectors injects your reducers asynchronously somewhere in your code
-  You have to declare them here manually
-  Properties are optional because they are injected when the components are mounted sometime in your application's life. 
-  So, not available always
+  因为redux-injectors会在你的代码中某个地方异步注入你的reducers
+  你必须在这里手动声明它们
+  属性是可选的，因为它们是在你的应用程序中的某个时候被注入组件的。
+  所以，并不总是可用的
 */
 export interface RootState {
-  app?: AppState;
-  newSlice?: NewSliceState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
