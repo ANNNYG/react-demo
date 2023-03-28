@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "@babel/preset-env", "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "import", {
+        "libraryName": "antd",
+        "style": true
+      }
+    ]
+  ],
+  "sourceType": "unambiguous" // 解决错误：ES Modules may not assign module.exports or exports.*, Use ESM export syntax
+}
