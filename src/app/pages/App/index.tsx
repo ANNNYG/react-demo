@@ -1,18 +1,19 @@
-/**
- *
- * App
- *
- */
-
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, useRoutes } from 'react-router-dom';
+
+import ROUTERS from 'app/Router';
 
 interface Props {}
 
 export function AppPage(props: Props) {
+  const Router = () => {
+    const element = useRoutes(ROUTERS);
+    return element;
+  };
+
   return (
     <BrowserRouter>
-      <Switch></Switch>
+      <Router />
     </BrowserRouter>
   );
 }

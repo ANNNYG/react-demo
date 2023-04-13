@@ -12,7 +12,8 @@ export type InjectedReducersType = {
 };
 export interface InjectReducerParams<Key extends RootStateKeyType> {
   key: Key;
-  reducer: Reducer<RequiredRootState[Key], AnyAction>;
+  // ts类型后面需要修改
+  reducer: Reducer<RequiredRootState[Key], AnyAction> | any;
 }
 
 export interface InjectSagaParams {
