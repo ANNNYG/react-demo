@@ -11,36 +11,22 @@ import 'react-app-polyfill/stable';
 import * as React from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 import { Provider } from 'react-redux';
-import FontFaceObserver from 'fontfaceobserver';
 
 // antd样式通过 babel-plugin-import 实现按需加载 打包体积减少1M
 import { ConfigProvider, message } from 'antd';
-import zhCN from 'antd/es/locale/zh_CN';
 import { ThemeProvider } from 'styled-components';
 import { HelmetProvider } from 'react-helmet-async';
 
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-
-// Use consistent styling
 import 'sanitize.css/sanitize.css';
 
 import { App } from 'app';
-
 import { configureAppStore } from 'store/configureStore';
 
 // import reportWebVitals from 'reportWebVitals';
 
 import antdTheme from './styles/antd_theme.json';
-
-// Observe loading of Inter (to remove 'Inter', remove the <link> tag in
-// the index.html file and this observer)
-const openSansObserver = new FontFaceObserver('Inter', {});
-
-// When Inter is loaded, add a font-family using Inter to the body
-openSansObserver.load().then(() => {
-  document.body.classList.add('fontLoaded');
-});
 
 const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
@@ -52,7 +38,9 @@ message.config({
 
 ReactDOMClient.createRoot(MOUNT_NODE!).render(
   <Provider store={store}>
-    <ConfigProvider locale={zhCN} autoInsertSpaceInButton={false}>
+    {/* antd的配置 */}
+    <ConfigProvider autoInsertSpaceInButton={false}>
+      {/* styled-components的配置 */}
       <ThemeProvider theme={antdTheme}>
         <HelmetProvider>
           <App />
